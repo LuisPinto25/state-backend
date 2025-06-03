@@ -16,7 +16,12 @@ const processOrder = async (
 };
 
 const createOrder = async (req: Request, res: Response) => {
-  processOrder(req, res, orderService.createOrder);
+  try {
+    const orderInfo = await orderService.createOrder();
+    res.status(200).send(orderInfo);
+  } catch (error) {
+    res.status(400).send({ message: (error as Error).message });
+  }
 };
 
 const shipOrder = async (req: Request, res: Response) => {

@@ -14,7 +14,15 @@ const createOrder = async () => {
     ]);
 
     await Database.createOrder(order);
-    return 'Pedido realizado, pronto el vendedor empezara con el envío';
+
+    return {
+      order: {
+        id: order.id,
+        customerId: order.customerId,
+        items: order.items,
+      },
+      message: 'Pedido realizado, pronto el vendedor empezara con el envío',
+    };
   } catch (error) {
     throw error;
   }
