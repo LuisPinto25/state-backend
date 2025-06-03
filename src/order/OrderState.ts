@@ -1,7 +1,7 @@
 import type { Order } from './Order';
 
 export abstract class OrderState {
-  order: Order;
+  protected order: Order;
 
   constructor(order: Order) {
     this.order = order;
