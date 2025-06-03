@@ -1,6 +1,6 @@
 import type { Order } from './Order';
 import { OrderState } from './OrderState';
-import { CancelledState } from './CancelledState';
+import { CanceledState } from './CancelledState';
 import { ShippedState } from './ShippedState';
 
 export class PendingState extends OrderState {
@@ -21,7 +21,7 @@ export class PendingState extends OrderState {
   }
 
   cancel() {
-    this.order.setState(new CancelledState(this.order));
+    this.order.setState(new CanceledState(this.order));
     this.order.setInfoMessage({
       status: 200,
       message: 'Pedido cancelado exitosamente',

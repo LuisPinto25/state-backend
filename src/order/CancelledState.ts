@@ -1,7 +1,7 @@
 import type { Order } from './Order';
 import { OrderState } from './OrderState';
 
-export class CancelledState extends OrderState {
+export class CanceledState extends OrderState {
   constructor(order: Order) {
     super(order);
   }
