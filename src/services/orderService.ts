@@ -13,6 +13,11 @@ const createOrder = async () => {
       },
     ]);
 
+    order.setInfoMessage({
+      status: 200,
+      message: 'Pedido realizado, pronto el vendedor empezará con el envío',
+    });
+
     await Database.createOrder(order);
 
     return {
@@ -21,7 +26,7 @@ const createOrder = async () => {
         customerId: order.customerId,
         items: order.items,
       },
-      message: 'Pedido realizado, pronto el vendedor empezara con el envío',
+      message: order.getInfoMessage().message,
     };
   } catch (error) {
     throw error;

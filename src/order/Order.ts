@@ -10,12 +10,20 @@ type OrderItem = {
   price: number;
 };
 
+export type ResponseMessage = {
+  status: number;
+  message: string;
+};
+
 export class Order {
   readonly id: Id;
   readonly customerId: Id;
   readonly items: OrderItem[];
   private state: OrderState;
-  private infoMessage: string = '';
+  private infoMessage: ResponseMessage = {
+    status: 200,
+    message: 'Todo ha salido bien',
+  };
 
   constructor(id: Id, customerId: Id, items: OrderItem[]) {
     this.id = id;
@@ -40,7 +48,7 @@ export class Order {
     this.state.cancel();
   }
 
-  setInfoMessage(infoMessage: string) {
+  setInfoMessage(infoMessage: ResponseMessage) {
     this.infoMessage = infoMessage;
   }
 

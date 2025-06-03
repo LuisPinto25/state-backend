@@ -7,14 +7,17 @@ export class DeliveredState extends OrderState {
   }
 
   ship() {
-    this.order.setInfoMessage('Pedido ya entregado');
+    this.order.setInfoMessage({ status: 400, message: 'Pedido ya entregado' });
   }
 
   deliver() {
-    this.order.setInfoMessage('Pedido ya entregado');
+    this.order.setInfoMessage({ status: 400, message: 'Pedido ya entregado' });
   }
 
   cancel() {
-    this.order.setInfoMessage('Pedido ya entregado, no se puede cancelar');
+    this.order.setInfoMessage({
+      status: 400,
+      message: 'Pedido ya entregado, no se puede cancelar',
+    });
   }
 }

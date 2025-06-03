@@ -10,17 +10,21 @@ export class PendingState extends OrderState {
 
   ship() {
     this.order.setState(new ShippedState(this.order));
-    this.order.setInfoMessage('Pedido enviado');
+    this.order.setInfoMessage({ status: 200, message: 'Pedido enviado' });
   }
 
   deliver() {
-    this.order.setInfoMessage(
-      'El pedido debe ser enviado primero antes de entregar.'
-    );
+    this.order.setInfoMessage({
+      status: 400,
+      message: 'El pedido debe ser enviado primero antes de entregar.',
+    });
   }
 
   cancel() {
     this.order.setState(new CancelledState(this.order));
-    this.order.setInfoMessage('Pedido cancelado exitosamente');
+    this.order.setInfoMessage({
+      status: 200,
+      message: 'Pedido cancelado exitosamente',
+    });
   }
 }
