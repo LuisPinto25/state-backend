@@ -7,14 +7,14 @@ export class CancelledState extends OrderState {
   }
 
   ship() {
-    this.order.setInfoMessage('No se puede enviar la orden, fue cancelada');
+    this.order.setInfoMessage('No se puede enviar el pedido, fue cancelado');
   }
 
   deliver() {
-    this.order.setInfoMessage('No se puede entregar la orden, fue cancelada');
+    this.order.setInfoMessage('No se puede entregar el pedido, fue cancelado');
   }
 
   cancel() {
-    this.order.setInfoMessage('La orden ya había sido cancelada');
+    this.order.setInfoMessage('El pedido ya ha sido cancelada');
   }
 }
