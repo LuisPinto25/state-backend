@@ -1,6 +1,6 @@
 import type { Request, Response } from 'express';
 import orderService from '../services/orderService';
-import type { ResponseMessage } from '../order/Order';
+import type { ResponseMessage } from '../types/ResponseMessage';
 
 const processOrder = async (
   req: Request,

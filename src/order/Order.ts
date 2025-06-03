@@ -1,19 +1,8 @@
+import type { Id } from '../types/Id';
+import type { OrderItem } from '../types/OrderItem';
+import type { ResponseMessage } from '../types/ResponseMessage';
 import type { OrderState } from './OrderState';
 import { PendingState } from './PendingState';
-
-type Id = `${string}-${string}-${string}-${string}-${string}`;
-
-type OrderItem = {
-  id: Id;
-  image: string;
-  description: string;
-  price: number;
-};
-
-export type ResponseMessage = {
-  status: number;
-  message: string;
-};
 
 export class Order {
   readonly id: Id;
